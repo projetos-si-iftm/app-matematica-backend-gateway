@@ -10,7 +10,7 @@ spring:
         webflux:
           routes:
             - id: usuario
-              uri: http://localhost:8084
+              uri: lb://usuario
               predicates:
                 - Path=/usuario/**
               filters:
@@ -35,3 +35,5 @@ eureka:
     register-with-eureka: true
     instance:
       prefer-ip-address: true
+
+CHAVE_ASSINATURA_JWT: "yKBmhatEEfOAVcYQjDX8kQKJWfDvcsWSrEvTNGR3fdlskpMQ8X4sj5mCyCoyIq+nFZ5v2fZlpnI4M89ZBrscfw=="
