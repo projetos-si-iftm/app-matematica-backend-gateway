@@ -10,7 +10,7 @@ spring:
         webflux:
           routes:
             - id: usuario
-              uri: http://localhost:8084
+              uri: lb://usuario
               predicates:
                 - Path=/usuario/**
               filters:
