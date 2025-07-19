@@ -1,39 +1,41 @@
-# spring.application.name=gateway-matematica
 server:
-  port: 8081
+  port: ${PORT:8081}
+
 spring:
   application:
     name: gateway-matematica
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: usuario
-              uri: lb://usuario
-              predicates:
-                - Path=/usuario/**
-              filters:
-                - StripPrefix=1
-            - id: questao
-              uri: lb://questao
-              predicates:
-                - Path=/questao/**
-              filters:
-                - StripPrefix=1
-            - id: resposta
-              uri: lb://resposta
-              predicates:
-                - Path=/resposta/**
-              filters:
-                - StripPrefix=1
+      routes:
+        - id: usuario
+          uri: lb://usuario
+          predicates:
+            - Path=/usuario/**
+          filters:
+            - StripPrefix=1
+        - id: questao
+          uri: lb://questao
+          predicates:
+            - Path=/questao/**
+          filters:
+            - StripPrefix=1
+        - id: resposta
+          uri: lb://resposta
+          predicates:
+            - Path=/resposta/**
+          filters:
+            - StripPrefix=1
+
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:https://app-matematica-eureka-f69602e28e4d.herokuapp.com/eureka/}
     fetch-registry: true
     register-with-eureka: true
-    instance:
-      prefer-ip-address: true
+  instance:
+    hostname: ${HEROKU_APP_NAME}.herokuapp.com
+    non-secure-port: 80
+    secure-port: 443
+    prefer-ip-address: false
 
-CHAVE_ASSINATURA_JWT: "yKBmhatEEfOAVcYQjDX8kQKJWfDvcsWSrEvTNGR3fdlskpMQ8X4sj5mCyCoyIq+nFZ5v2fZlpnI4M89ZBrscfw=="
+CHAVE_ASSINATURA_JWT: ${CHAVE_ASSINATURA_JWT}
