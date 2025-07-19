@@ -24,8 +24,15 @@ private static final Logger log = LoggerFactory.getLogger(FiltroAutenticacaoJWT.
 
     private static final List<String> ROTAS_PERMITIDAS = List.of(
         "/usuario/api/v1/estudante/autenticacao",
-            // "/usuario/api/v1/estudante/concluir-cadastro",
-        "/usuario/api/v1/professor/autenticacao"
+         "/usuario/api/v1/turma",
+         "/usuario/",
+         "/questao/",
+         "/resposta/",
+        "/usuario/api/v1/professor/autenticacao",
+        "/resposta/report/ranking",
+        "/resposta/report/ranking/**",
+        "/usuario/api/v1/estudante/*/",
+        "/usuario/api/v1/turma/*/"
     );
 
     @Override
