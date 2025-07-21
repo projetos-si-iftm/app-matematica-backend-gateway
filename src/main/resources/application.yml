@@ -33,7 +33,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
   instance:
-    hostname: ${HEROKU_APP_NAME}.herokuapp.com
+    hostname: app-matematica-gateway-a356f607c624.herokuapp.com
     non-secure-port: 80
     secure-port: 443
     prefer-ip-address: false
